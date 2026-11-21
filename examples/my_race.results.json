@@ -1,0 +1,107 @@
+{
+  "seed": 42,
+  "track": "Prototype Circuit (uncalibrated)",
+  "classification": [
+    {
+      "position": 1,
+      "car_id": "car_01",
+      "elapsed_s": 4709.977185336341,
+      "used_compounds": [
+        "HARD",
+        "MEDIUM"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 2,
+      "car_id": "car_03",
+      "elapsed_s": 4714.4489096864045,
+      "used_compounds": [
+        "HARD",
+        "MEDIUM"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 3,
+      "car_id": "car_02",
+      "elapsed_s": 4715.079761524686,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 4,
+      "car_id": "car_05",
+      "elapsed_s": 4721.763589459794,
+      "used_compounds": [
+        "HARD",
+        "MEDIUM"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 5,
+      "car_id": "car_04",
+      "elapsed_s": 4722.250390618179,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 6,
+      "car_id": "car_07",
+      "elapsed_s": 4723.086217707052,
+      "used_compounds": [
+        "HARD",
+        "MEDIUM"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 7,
+      "car_id": "car_09",
+      "elapsed_s": 4728.365343130689,
+      "used_compounds": [
+        "HARD",
+        "MEDIUM"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 8,
+      "car_id": "car_08",
+      "elapsed_s": 4730.688226728202,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 9,
+      "car_id": "car_06",
+      "elapsed_s": 4735.628772453772,
+      "used_compounds": [
+        "HARD",
+        "MEDIUM",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 10,
+      "car_id": "car_10",
+      "elapsed_s": 4740.448007806151,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "seed": 42,
+  "simulation_version": 3,
+  "track": "Prototype Circuit (uncalibrated)",
+  "starting_compounds": [
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT"
+  ],
+  "completed_laps": 20,
+  "total_laps": 20,
+  "equivalent_laps": 42.0,
+  "complete": true,
+  "classification": [
+    {
+      "position": 1,
+      "car_id": "car_02",
+      "elapsed_s": 4162.005730586586,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 2,
+      "car_id": "car_01",
+      "elapsed_s": 4162.7315936536215,
+      "used_compounds": [
+        "MEDIUM",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 3,
+      "car_id": "car_03",
+      "elapsed_s": 4165.982681634535,
+      "used_compounds": [
+        "MEDIUM",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 4,
+      "car_id": "car_04",
+      "elapsed_s": 4166.430716462889,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 5,
+      "car_id": "car_05",
+      "elapsed_s": 4168.002222450568,
+      "used_compounds": [
+        "MEDIUM",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 6,
+      "car_id": "car_07",
+      "elapsed_s": 4174.1826211065,
+      "used_compounds": [
+        "MEDIUM",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 7,
+      "car_id": "car_09",
+      "elapsed_s": 4174.457992671448,
+      "used_compounds": [
+        "MEDIUM",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 8,
+      "car_id": "car_08",
+      "elapsed_s": 4176.370336680433,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 9,
+      "car_id": "car_10",
+      "elapsed_s": 4179.6092686838,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    },
+    {
+      "position": 10,
+      "car_id": "car_06",
+      "elapsed_s": 4191.129817666464,
+      "used_compounds": [
+        "HARD",
+        "SOFT"
+      ],
+      "status": "FINISHED"
+    }
+  ]
+}

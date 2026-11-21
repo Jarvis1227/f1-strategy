@@ -1,0 +1,44 @@
+import React,{useState} from 'react';
+import {ArrowRight,Flag,RotateCcw,Trophy,Zap} from 'lucide-react';
+import './battle.css';
+import {battleGapY} from './replay.js';
+const f=n=>Math.abs(Number(n||0)).toFixed(2);
+
+function HeroCar({color,number,x,y,rotate=0}){
+  return <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
+    <ellipse cx="0" cy="12" rx="66" ry="132" fill="#050c12" opacity=".55"/>
+    {[-1,1].map(side=><g key={side}><rect x={side===1?30:-55} y="-61" width="25" height="45" rx="8" fill="#08121b" stroke="#526373" strokeWidth="2"/><rect x={side===1?30:-55} y="44" width="25" height="48" rx="8" fill="#08121b" stroke="#526373" strokeWidth="2"/></g>)}
+    <path d="M-13-109H13L20-38 35-5 29 61 21 91H-21L-29 61-35-5-20-38Z" fill={color}/>
+    <path d="M-9-98H9L12-35H-12Z" fill="#f4f9f7" opacity=".8"/><path d="M-33 5L-16-8H16L33 5 22 62H-22Z" fill="#102332"/>
+    <rect x="-55" y="-106" width="110" height="11" rx="3" fill={color}/><rect x="-49" y="91" width="98" height="15" rx="3" fill={color}/>
+    <ellipse cy="0" rx="11" ry="20" fill="#f1f6fa"/><path d="M-13 13Q0-15 13 13" stroke={color} strokeWidth="4" fill="none"/>
+    <text y="65" textAnchor="middle" fill="#07121c" fontSize="22" fontWeight="900">{number}</text>
+  </g>;
+}
+
+export function BattleLobby({busy,onBattle,onGrandPrix}){
+  return <div className="battle-lobby">
+    <header className="rivals-brand"><span>PIT WALL<span className="rivals-word">RIVALS</span></span><small>RACING IS A THINKING GAME.</small></header>
+    <section className="battle-hero">
+      <div className="hero-race-art"><svg viewBox="0 0 650 650" aria-label="Your lime racing car chasing Vega's cyan car"><defs><linearGradient id="battle-road" x2="1" y2="1"><stop stopColor="#274457"/><stop offset="1" stopColor="#0a1724"/></linearGradient></defs><path d="M90 780L460-130H750L360 780Z" fill="url(#battle-road)"/><path d="M100 780L470-130M360 780L730-130" stroke="#72949d" strokeWidth="5" strokeDasharray="45 20"/><path d="M231 780L600-130" stroke="#8eb9c6" strokeWidth="2" strokeDasharray="25 35" opacity=".4"/><HeroCar color="#54dfea" number="02" x={430} y={205} rotate={22}/><HeroCar color="#deff75" number="01" x={270} y={430} rotate={22}/><text x="424" y="38" fill="#59e4f0" fontSize="14" letterSpacing="4">VEGA / P3</text><text x="45" y="574" fill="#ddff75" fontSize="15" letterSpacing="5">YOU / P4</text></svg><div className="art-gap"><span>THE PODIUM</span><strong>1.80<span>SECONDS AWAY</span></strong></div></div>
+      <div className="battle-hero-copy"><div className="battle-eyebrow"><i/> BATTLE 01 / THE UNDERCUT</div><h1>STEAL THE<br/><em>PODIUM.</em></h1><p>Six laps left. One rival in your way.<br/>Your tyres are fading. Your moment is now.</p><div className="battle-tags"><span><Flag size={14}/>6 CALLS</span><span><Zap size={14}/>~3 MINUTES</span><span><Trophy size={14}/>TAKE P3</span></div><button className="launch-battle" disabled={busy} onClick={onBattle}>{busy?'CONNECTING…':'ENTER THE BATTLE'}<ArrowRight size={23}/></button><small className="battle-promise">Make the call. Watch the chase. Rewind and try another line.</small></div>
+    </section>
+    <section className="battle-briefing"><div><span>YOUR SITUATION</span><strong>Old Mediums.<br/>A fresh opportunity.</strong><p>A stop costs 22 seconds. Stay out and your tyres get slower. Pit and you have to fight your way back.</p></div><div><span>YOUR RIVAL / VEGA</span><strong>The counterpuncher.</strong><p>He watches your moves and reacts to an early stop. His tyres are older, but his track position is better.</p></div><div><span>HOW TO WIN</span><strong>Finish on the podium.<br/>Ahead of Vega.</strong><p>You inherit a race already in progress. Both compounds are already used. Every remaining call is yours.</p></div></section>
+    <button className="grand-prix-link" disabled={busy} onClick={onGrandPrix}>Prefer the full race? <strong>20-lap Grand Prix</strong><ArrowRight size={15}/></button>
+    <p className="battle-model-note">Authored dry-race challenge · 10 cars · illustrative performance model · all results simulated</p>
+  </div>;
+}
+
+export function BattleHUD({race}){
+  const b=race?.battle;if(!b)return null;
+  const last=b.timeline.at(-1);
+  return <section className={`rival-duel ${b.gap_s<0?'duel-ahead':''}`} aria-label="Podium battle"><div className="duel-objective"><span>BATTLE 01 / STEAL THE PODIUM</span><strong>{race.done?(b.won?'PODIUM STOLEN.':'THE BATTLE IS OVER.'):b.gap_s<0?'YOU HAVE VEGA. HOLD ON.':'ONE RIVAL. ONE PODIUM.'}</strong><small>{b.remaining_laps} calls left · race lap {b.lap_offset+race.completed_laps}/20</small>{!race.done&&<small>Pit +{race.pit_cost_s}s · next-lap wear +{Number(race.coaching?.tyre_status?.stay_out[0]?.wear_loss_s||0).toFixed(2)}s vs fresh same compound</small>}{race.branch_from&&<small>Rewind: call {race.branch_from.lap} · original result P{race.branch_from.position}</small>}</div><div className="duel-you"><span>YOU</span><strong>P{b.position}</strong><small>VECTOR</small></div><div className="duel-gap"><span>{b.gap_s<0?'YOUR ADVANTAGE':'THE GAP TO VEGA'}</span><strong>{f(b.gap_s)}<small>s</small></strong><i><b style={{width:`${Math.max(5,100-Math.abs(b.gap_s)*3)}%`}}/></i></div><div className="duel-rival"><span>VEGA</span><strong>02</strong><small>COUNTERPUNCHER</small></div><div className="duel-note"><span>{last?'LAST LAP SWING':'IF YOU PIT NOW'}</span><strong>{last?`${Math.abs(last.gap_gain_s)<.005?'LEVEL':last.gap_gain_s>=0?'GAINED':'LOST'} ${f(last.gap_gain_s)}s`:`≈ P${b.projected_pit_exit_position} exit`}</strong><small>{last?last.rival_response:'Stationary-field estimate; rivals can move.'}</small></div></section>;
+}
+
+export function BattleDebrief({race,busy,onRewind,onAgain}){
+  const [lap,setLap]=useState(1),b=race.battle;
+  const max=Math.max(5,...b.timeline.map(t=>Math.abs(t.gap_s)));
+  const y=gap=>battleGapY(gap,max);
+  const points=[[0,1.8],...b.timeline.map(t=>[t.lap,t.gap_s])];
+  return <section id="battle-debrief" className={`battle-debrief ${b.won?'battle-won':''}`} aria-label="Battle debrief"><div className="battle-result-title"><Trophy size={32}/><div><span>{b.won?'OBJECTIVE COMPLETE':'ONE MORE LINE TO TRY'}</span><h2>{b.won?'You stole the podium.':'The podium slipped away.'}</h2><p>P{b.position} · {f(b.gap_s)}s {b.gap_s<0?'ahead of':'behind'} Vega. {b.won?'Your calls paid off.':'Rewind a call and see what changes.'}</p></div></div>{race.branch_from&&<div className="branch-comparison"><strong>ORIGINAL P{race.branch_from.position} → THIS BRANCH P{b.position}</strong><span>{f(race.cars.find(c=>c.car_id==='car_01').elapsed_s-race.branch_from.elapsed_s)}s {race.cars.find(c=>c.car_id==='car_01').elapsed_s<race.branch_from.elapsed_s?'faster':'slower'} across the full closing stint.</span><a href={`/api/races/${race.branch_from.race_id}/export/results`} download>Save original result</a></div>}<div className="battle-review-grid"><div><h3>The gap tells the story</h3><svg viewBox="0 0 520 125" role="img" aria-label="Actual gap to Vega after each call; below the middle line means you are ahead"><line x1="20" y1="60" x2="500" y2="60" stroke="#6c8f9d" strokeDasharray="4 5"/><text x="22" y="13" fill="#9db1c3" fontSize="8">BEHIND VEGA</text><text x="22" y="120" fill="#dfff92" fontSize="8">AHEAD OF VEGA</text><polyline points={points.map(([n,g])=>`${20+n/6*480},${y(g)}`).join(' ')} fill="none" stroke="#ddff75" strokeWidth="3"/>{points.map(([n,g])=><circle key={n} cx={20+n/6*480} cy={y(g)} r="4" fill="#e5ffad"><title>Call {n}: {g>0?'behind':'ahead'} by {f(g)} seconds</title></circle>)}</svg><div className="rewind-call"><label>Rewind to call <select value={lap} onChange={e=>setLap(Number(e.target.value))}>{b.timeline.map(t=><option key={t.lap} value={t.lap}>{t.lap} · {t.action?`Box ${t.action}`:'Stay out'}</option>)}</select></label><button disabled={busy} onClick={()=>onRewind(lap)}><RotateCcw size={15}/>TRY ANOTHER MOVE</button></div><p className="rewind-explanation">Creates a new branch before that call, with the same starting state and random streams. Rivals can respond to your new choices. Your original result stays available on the server.</p></div><div className="battle-timeline">{b.timeline.map(t=><div key={t.lap}><span>{String(t.race_lap).padStart(2,'0')}</span><div><strong>{t.action?`BOX ${t.action}`:'STAY OUT'} <small>P{t.position}</small></strong><p>{f(t.gap_s)}s {t.gap_s<0?'ahead of':'behind'} Vega. {t.rival_response}</p></div><b className={t.gap_gain_s>=0?'swing-gain':''}>{t.gap_gain_s>=0?'+':'−'}{f(t.gap_gain_s)}s</b></div>)}</div></div><div className="battle-debrief-footer"><span>Gap swings include both cars' pace, stops and traffic. They are observations, not proof of an optimal strategy.</span><button disabled={busy} onClick={onAgain}>NEW BATTLE / GRAND PRIX <ArrowRight size={14}/></button></div></section>;
+}

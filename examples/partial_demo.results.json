@@ -1,0 +1,111 @@
+{
+  "seed": 42,
+  "simulation_version": 2,
+  "track": "Prototype Circuit (uncalibrated)",
+  "starting_compounds": [
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT",
+    "MEDIUM",
+    "SOFT"
+  ],
+  "completed_laps": 1,
+  "complete": false,
+  "classification": [
+    {
+      "position": 1,
+      "car_id": "car_02",
+      "elapsed_s": 92.80343011402748,
+      "used_compounds": [
+        "SOFT"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 2,
+      "car_id": "car_01",
+      "elapsed_s": 92.97233043300504,
+      "used_compounds": [
+        "MEDIUM"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 3,
+      "car_id": "car_04",
+      "elapsed_s": 93.38790365740871,
+      "used_compounds": [
+        "SOFT"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 4,
+      "car_id": "car_03",
+      "elapsed_s": 94.24736242582341,
+      "used_compounds": [
+        "MEDIUM"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 5,
+      "car_id": "car_06",
+      "elapsed_s": 94.43919449782855,
+      "used_compounds": [
+        "SOFT"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 6,
+      "car_id": "car_08",
+      "elapsed_s": 94.930597007781,
+      "used_compounds": [
+        "SOFT"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 7,
+      "car_id": "car_05",
+      "elapsed_s": 95.05890288108863,
+      "used_compounds": [
+        "MEDIUM"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 8,
+      "car_id": "car_10",
+      "elapsed_s": 95.77838651060246,
+      "used_compounds": [
+        "SOFT"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 9,
+      "car_id": "car_07",
+      "elapsed_s": 95.82600610842898,
+      "used_compounds": [
+        "MEDIUM"
+      ],
+      "status": "RUNNING"
+    },
+    {
+      "position": 10,
+      "car_id": "car_09",
+      "elapsed_s": 96.4539198546846,
+      "used_compounds": [
+        "MEDIUM"
+      ],
+      "status": "RUNNING"
+    }
+  ]
+}

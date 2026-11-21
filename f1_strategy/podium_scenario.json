@@ -1,0 +1,29 @@
+{
+  "id": "steal_the_podium",
+  "title": "Steal the Podium",
+  "briefing": "Six laps left. You are P4, 1.8 seconds behind Vega. Your Mediums are fading. Vega is waiting for his window. Pit first, extend, or follow him: make the podium yours.",
+  "objective": "Finish P3 or better, ahead of Vega",
+  "laps": 6,
+  "equivalent_laps": 12.6,
+  "lap_offset": 14,
+  "fuel_start_kg": 25.2,
+  "sc_start_probability": 0,
+  "rival_id": "car_02",
+  "rival_name": "VEGA",
+  "rival_style": "Counterpuncher",
+  "rival_planned_pit_turn": 2,
+  "rival_cover_min_age": 20,
+  "rival_compound": "SOFT",
+  "cars": [
+    {"car_id":"car_01", "gap":34.8, "compound":"MEDIUM", "age":22.0},
+    {"car_id":"car_02", "gap":33.0, "compound":"HARD", "age":25.0},
+    {"car_id":"car_03", "gap":0.0, "compound":"MEDIUM", "age":7.0},
+    {"car_id":"car_04", "gap":5.0, "compound":"HARD", "age":8.0},
+    {"car_id":"car_05", "gap":38.0, "compound":"HARD", "age":16.0},
+    {"car_id":"car_06", "gap":40.5, "compound":"MEDIUM", "age":14.0},
+    {"car_id":"car_07", "gap":43.0, "compound":"HARD", "age":15.0},
+    {"car_id":"car_08", "gap":46.0, "compound":"MEDIUM", "age":13.0},
+    {"car_id":"car_09", "gap":49.0, "compound":"HARD", "age":15.0},
+    {"car_id":"car_10", "gap":52.0, "compound":"MEDIUM", "age":12.0}
+  ]
+}

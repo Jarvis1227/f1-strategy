@@ -1,0 +1,45 @@
+{
+  "track": "Prototype Circuit (uncalibrated)",
+  "laps": 50,
+  "cars": 10,
+  "base_lap_s": 90.0,
+  "grid_gap_s": 0.35,
+  "car_pace_step_s": 0.04,
+  "lap_noise_std_s": 0.12,
+  "fuel_start_kg": 100.0,
+  "fuel_burn_kg_per_lap": 2.0,
+  "fuel_s_per_kg": 0.03,
+  "pit_loss_green_s": 22.0,
+  "pit_loss_sc_s": 15.0,
+  "required_compounds": 2,
+  "traffic_gap_s": 1.0,
+  "traffic_penalty_s": 0.35,
+  "sc_start_probability": 0.035,
+  "sc_min_laps": 2,
+  "sc_max_laps": 4,
+  "sc_lap_s": 125.0,
+  "sc_queue_gap_s": 0.5,
+  "tyres": {
+    "SOFT": {
+      "base_delta_s": -1.0,
+      "degradation_s_per_lap": 0.09,
+      "cliff_laps": 14,
+      "cliff_coefficient": 0.035,
+      "cliff_exponent": 2.0
+    },
+    "MEDIUM": {
+      "base_delta_s": 0.0,
+      "degradation_s_per_lap": 0.055,
+      "cliff_laps": 23,
+      "cliff_coefficient": 0.025,
+      "cliff_exponent": 2.0
+    },
+    "HARD": {
+      "base_delta_s": 0.65,
+      "degradation_s_per_lap": 0.03,
+      "cliff_laps": 33,
+      "cliff_coefficient": 0.02,
+      "cliff_exponent": 2.0
+    }
+  }
+}

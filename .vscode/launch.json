@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Play in browser (React + FastAPI)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "f1_strategy.webserver",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "cwd": "${workspaceFolder}",
+      "args": ["--open"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Play F1 Strategy (you drive car_01)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "f1_strategy",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "cwd": "${workspaceFolder}",
+      "args": ["--play", "--seed", "42", "--output", "examples/player_race.csv"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Run F1 race (seed 42)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "f1_strategy",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "cwd": "${workspaceFolder}",
+      "args": ["--seed", "42", "--output", "examples/my_race.csv"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Run all tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "unittest",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "cwd": "${workspaceFolder}",
+      "args": ["discover", "-s", "tests", "-v"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
